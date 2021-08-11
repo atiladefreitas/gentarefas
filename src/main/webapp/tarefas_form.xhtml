@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jxp.org/jsf/core">
+		
+
+	<h:head>
+		<title>Gerenciador de Tarefas</title>
+	</h:head>
+
+	<h:body>
+	
+		<h:form method="post" action="">
+			Tiulo: <h:inputText id="titulo" value="#{tarefas.titulo}" />
+			
+			<br/><br/>
+			
+			Descrição: <textArea name="descricao" id="descricao" value="#{tarefas.descricao}" rows="15" cols="40" />
+			
+			<br/><br/>
+			
+			Responsável:
+			<h:selectOneMenu value="#{tarefas.responsavel}">
+				<f:selectItems value="#{tarefas.respOptions}" /> <!-- irá chamar tarefas.getRespOptions() -->
+			</h:selectOneMenu>
+			
+			<!--  
+			<h:selectOneMenu value="#{tarefas.responsavel}">
+				<f:selectItem itemValue="Atila" itemLabel="Atila" />
+				<f:selectItem itemValue="Fulano" itemLabel="Fulano" />
+				<f:selectItem itemValue="Beltrano" itemLabel="Beltrano" />
+				<f:selectItem itemValue="Ciclano" itemLabel="Ciclano" />	
+			</h:selectOneMenu>
+			-->
+			<br/><br/>
+			
+			Prioridade:
+			<h:selectOneMenu value="#{tarefas.prioridade}">
+				<f:selectItems value="#{tarefas.prioOptions}" /> <!-- irá chamar tarefas.getPrioOptions() -->
+			</h:selectOneMenu>
+			
+			<br/><br/>
+			
+			<h:button value="Cadastrar Tarefa" action="tarefas_response"/>
+			
+			<br/><br/>
+			
+			
+		</h:form>
+		
+	</h:body>
+
+</html>
